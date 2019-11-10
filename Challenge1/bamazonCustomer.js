@@ -1,10 +1,3 @@
-//first display all of the items available for sale
-//include all ids, names, sizes, and prices
-
-//prompt users with two mesages.
-// ask them the ID of the product they want to buy
-//ask how many units of the product they want to buy
-
 //once the order is placed, if the store doesn't have
 //enough product, say "Insufficient quantity!"
 
@@ -40,18 +33,18 @@ function displayItems() {
   connection.query("SELECT * FROM products", function(err, res) {
       if (err) throw err;
       for (var i = 0; i < res.length; i++) {
-          productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price);
+          productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
       }
       console.log(productsArray);
+      return productsArray;
     })
+    return productsArray;
 };
 
-
-function customerQuery() {
+function customerQuery(productsArray) {
     // query the database for all items being auctioned
     connection.query("SELECT * FROM products", function(err, res) {
       if (err) throw err;
-      // once you have the items, prompt the user for which they'd like to bid on
       inquirer
         .prompt([
           {
@@ -65,42 +58,36 @@ function customerQuery() {
             message: "How many would you like to purchase?"
           }
         ])
-        //console.log this entire function to reveal what information is produced and how to repurpose it.
         .then(function(answer) {
-          // use this to gather information about quantity and set it to a variable to perform an operation.
-          console.log(answer);
-          // var chosenItem;
-          // for (var i = 0; i < results.length; i++) {
-          //   if (results[i].item_name === answer.choice) {
-          //     chosenItem = results[i];
-          //   }
-          // }
+          var chosenItem;
+          for (var i = 0; i < res.length; i++) {
+            if (res[i].product_name === answer.item_id) {
+              chosenItem = res[i];
+            }
+          }
+          console.log("answer:" + answer);
+          
   
-          // if (chosenItem.highest_bid < parseInt(answer.bid)) {
-          //   //need to update this if function to be if quantity avaiable > quanitity requested, then do this.
-          //   connection.query(
-          //       //need to use query to discover the new quantity and reset the value in the db
-          //       //need to calcaulte total price.
-          //     "UPDATE auctions SET ? WHERE ?",
-          //     [
-          //       {
-          //         highest_bid: answer.bid
-          //       },
-          //       {
-          //         id: chosenItem.id
-          //       }
-          //     ],
-          //     function(error) {
-          //       if (error) throw err;
-          //       console.log("Thank you for your purchase! Your total was $: " totalprice variable);
-          //       start();
-          //     }
-          //   );
-          // }
-          // else {
-          //   console.log("Insufficient Quanity! Try again.");
-          //   start();
-          // }
+          if (chosenItem.stock_quantity < parseInt(answer.quantity)) {
+            var newQuantity = parseInt(chosenItem.stock_quantity) - parseInt(answer.stock_quantity);
+            // var totalPrice = parseInt(chosenItem.quantity) * res[i].price;
+            connection.query(
+              "UPDATE products SET ? WHERE ?",
+              [
+                {
+                  stock_quantity: newQuantity
+                },
+              ],
+              function(error) {
+                if (error) throw err;
+                console.log("Thank you for your purchase!")
+                // console.log("Thank you for your purchase! Your total was $: " + totalPrice);
+              }
+            );
+          }
+          else {
+            console.log("Insufficient Quanity! Try again.");
+          }
         });
     });
   }
