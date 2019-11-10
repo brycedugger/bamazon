@@ -39,12 +39,24 @@ function customerQuery() {
       {
         name: "item_id",
         type: "input",
-        message: "Input the item ID of the product you'd like to purchase."
+        message: "Input the item ID of the product you'd like to purchase.",
+        validate: function (value) {
+          if (isNaN(value) === false) {
+              return true;
+          }
+          return false;
+      }
       },
       {
         name: "quantity",
         type: "input",
-        message: "How many would you like to purchase?"
+        message: "How many would you like to purchase?",
+        validate: function (value) {
+          if (isNaN(value) === false) {
+              return true;
+          }
+          return false;
+      }
       }
     ])
     .then(function (answer) {

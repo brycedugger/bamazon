@@ -46,7 +46,7 @@ function runManager() {
           break;
   
         case "Add to Inventory":
-          addInventory();
+          viewProductsAddInventory();
           break;
   
         case "Add New Product":
@@ -82,6 +82,64 @@ function lowInventory() {
         console.log(productsArray);
         runManager();
     })
+};
+
+function viewProductsAddInventory() {
+    var productsArray = [];
+    connection.query("SELECT * FROM products", function (err, res) {
+        if (err) throw err;
+        for (var i = 0; i < res.length; i++) {
+            productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
+        }
+        console.log(productsArray);
+        customerQuery();
+    })
+};
+
+function customerQuery() {
+    inquirer
+      .prompt([
+        {
+          name: "item_id",
+          type: "input",
+          message: "Input the item ID of the product you'd like to add quantity too.",
+          validate: function (value) {
+            if (isNaN(value) === false) {
+                return true;
+            }
+            return false;
+        }
+        },
+        {
+          name: "quantity",
+          type: "input",
+          message: "How many would you like to add",
+          validate: function (value) {
+            if (isNaN(value) === false) {
+                return true;
+            }
+            return false;
+        }
+        }
+      ])
+      .then(function (answer) {
+        addInventory(answer.item_id, parseInt(answer.quantity));
+      });
+  };
+  
+  
+function addInventory(id, quantity) {
+    connection.query("SELECT * FROM products WHERE ?", [{ item_id: id }], function (err, results) {
+        if (err) throw err;
+        var dbQuantity = parseInt(results[0].stock_quantity);
+        var newQuantity = dbQuantity + quantity;
+        connection.query("UPDATE products SET ? WHERE ?", [{ stock_quantity: newQuantity }, { item_id: id }], function (error) {
+            if (error) throw err;
+            console.log("Your stock quantity has been updated.");
+            runManager();
+        }
+        );
+    });
 };
 
 
