@@ -32,7 +32,7 @@ function runManager() {
           "View Low Inventory",
           "Add to Inventory",
           "Add New Product",
-          "exit"
+          "Exit"
         ]
       })
       .then(function(answer) {
@@ -53,7 +53,7 @@ function runManager() {
           newProduct();
           break;
   
-        case "exit":
+        case "Exit":
           connection.end();
           break;
         }
@@ -68,6 +68,7 @@ function viewProducts() {
             productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
         }
         console.log(productsArray);
+        console.log("-----------------------------------------------------------");
         runManager();
     })
 };
@@ -80,6 +81,7 @@ function lowInventory() {
             productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
         }
         console.log(productsArray);
+        console.log("-----------------------------------------------------------");
         runManager();
     })
 };
@@ -92,6 +94,7 @@ function viewProductsAddInventory() {
             productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
         }
         console.log(productsArray);
+        console.log("-----------------------------------------------------------");
         customerQuery();
     })
 };
@@ -136,6 +139,7 @@ function addInventory(id, quantity) {
         connection.query("UPDATE products SET ? WHERE ?", [{ stock_quantity: newQuantity }, { item_id: id }], function (error) {
             if (error) throw err;
             console.log("Your stock quantity has been updated.");
+            console.log("-----------------------------------------------------------");
             runManager();
         }
         );
@@ -210,6 +214,7 @@ function newProduct() {
           function(err) {
             if (err) throw err;
             console.log("Your product was created successfully!");
+            console.log("-----------------------------------------------------------");
             runManager();
           }
         );

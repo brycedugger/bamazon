@@ -18,8 +18,32 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) throw err;
-    displayItems();
+    runManager();
 });
+
+function runManager() {
+  inquirer
+    .prompt({
+      name: "action",
+      type: "list",
+      message: "What would you like to do?",
+      choices: [
+        "Purchase a Product",
+        "Exit"
+      ]
+    })
+    .then(function(answer) {
+      switch (answer.action) {
+      case "Purchase a Product":
+        displayItems();
+        break;
+
+      case "Exit":
+        connection.end();
+        break;
+      }
+    });
+}
 
 function displayItems() {
   var productsArray = [];
@@ -75,13 +99,15 @@ function checkStockQuantity(id, quantity) {
       connection.query("UPDATE products SET ? WHERE ?", [{stock_quantity: newQuantity},{ item_id: id }], function (error) {
           if (error) throw err;
           console.log("Thank you for your purchase! Your total was $: " + totalPrice);
-          connection.end();
+          console.log("-----------------------------------------------------------");
+          runManager();
         }
       );
     }
     else {
       console.log("Insufficient Quanity! Try again.");
-      connection.end();
+      console.log("-----------------------------------------------------------");
+      runManager();
     }
   });
 };
