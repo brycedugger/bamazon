@@ -65,7 +65,7 @@ function viewProducts() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
         for (var i = 0; i < res.length; i++) {
-            productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
+            productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: $" + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
         }
         console.log(productsArray);
         console.log("-----------------------------------------------------------");
@@ -78,7 +78,7 @@ function lowInventory() {
     connection.query("SELECT * FROM products WHERE stock_quantity < 3", function (err, res) {
         if (err) throw err;
         for (var i = 0; i < res.length; i++) {
-            productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
+            productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: $" + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
         }
         console.log(productsArray);
         console.log("-----------------------------------------------------------");
@@ -91,7 +91,7 @@ function viewProductsAddInventory() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
         for (var i = 0; i < res.length; i++) {
-            productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
+            productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Department: " + res[i].department_name + "||" + "Size: " + res[i].size + "||" + "Price: $" + res[i].price + "||" + "Quantity: " + res[i].stock_quantity);
         }
         console.log(productsArray);
         console.log("-----------------------------------------------------------");
@@ -152,17 +152,6 @@ function newProduct() {
     inquirer
       .prompt([
           {
-              name: "id",
-              type: "input",
-              message: "What do you want to set the new product's ID value?",
-              validate: function (value) {
-                  if (isNaN(value) === false) {
-                      return true;
-                  }
-                  return false;
-              }
-          },
-          {
               name: "product",
               type: "input",
               message: "What's the name of the product?"
@@ -204,7 +193,6 @@ function newProduct() {
         connection.query(
           "INSERT INTO products SET ?",
           {
-            item_id: answer.id,
             product_name: answer.product,
             size: answer.size,
             department_name: answer.department,

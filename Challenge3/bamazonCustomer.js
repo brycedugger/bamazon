@@ -50,7 +50,7 @@ function displayItems() {
   connection.query("SELECT * FROM products", function (err, res) {
     if (err) throw err;
     for (var i = 0; i < res.length; i++) {
-      productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price);
+      productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Size: " + res[i].size + "||" + "Price: $" + res[i].price);
     }
     console.log(productsArray);
     customerQuery();

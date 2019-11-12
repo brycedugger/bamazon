@@ -89,41 +89,20 @@ function supervisorQuery() {
 
 
 function viewProductSales() {
-    // select from department -- id name and ohc
-    // create allias for product sales and join from products and summation of all products where in department.
-    // create allias for total profit to hard calculate within the alias
-                // SELECT 10 AS my_num, my_num*5 AS another_number 
-                // FROM table
+
+    var departmentArray = [];
+
+    var query = "SELECT d.department_id as 'Department_ID', d.department_name as 'Department', d.over_head_costs as 'Over_Head_Costs',";
+    query += "SUM(p.product_sales) as 'Product_Sales', SUM(p.product_sales) - d.over_head_costs as 'Total_Profit'";
+    query += "FROM departments as d LEFT JOIN products AS p ON (d.department_name = p.department_name) GROUP BY d.department_id";
+
+    connection.query(query
+        , function (err, res) {
+            if (err) throw err;
+            for (var i = 0; i < res.length; i++) {
+                departmentArray.push("ID: " + res[i].Department_ID + "||" + "Department: " + res[i].Department + "||" + "Over Head Costs: $"  + res[i].Over_Head_Costs + "||" + "Product Sales: $" + res[i].Product_Sales + "||" + "Total Profit: $" + res[i].Total_Profit);
+            }
+            console.log(departmentArray);
+            runSupervisor();
+        })
 };
-
-
-SELECT
-    orderNumber `Order no.`,
-    SUM(priceEach * quantityOrdered) total
-FROM
-    orderDetails
-GROUP BY
-    `Order no.`
-HAVING
-    total > 60000;
-
-
-select products.info and department info
-where department_id = item_id?
-
-| department_id | department_name | over_head_costs | product_sales | total_profit |
-| ------------- | --------------- | --------------- | ------------- | ------------ |
-| 01            | Electronics     | 10000           | 20000         | 10000        |
-| 02            | Clothing        | 60000           | 100000        | 40000        |
-
-SELECT members.`first_name` , members.`last_name` , movies.`title`
-FROM members ,movies
-WHERE movies.`id` = members.`movie_id`
-
-SELECT departments.`department_id` , departments.`department_name`, departments.`over_head_costs`,  
-FROM departments,products
-WHERE departments.`department_name` = products.`department_name`
-
-SELECT SUM(product_sales)
-FROM products
-WHERE departments.`department_name` = products.`department_name`;

@@ -6,7 +6,7 @@ USE bamazonDB;
 
 CREATE TABLE products (
 
-    item_id INT NOT NULL,
+    item_id INT NOT NULL AUTO_INCREMENT,
     product_name VARCHAR(100) NULL,
     size VARCHAR(100) NULL,
     department_name VARCHAR(100) NULL,
@@ -19,7 +19,7 @@ CREATE TABLE products (
 
 CREATE TABLE departments (
 
-    department_id INT NOT NULL,
+    department_id INT NOT NULL AUTO_INCREMENT,
     department_name VARCHAR(100) NULL,
     over_head_costs DECIMAL(10,2) NULL,
     PRIMARY KEY (department_id)

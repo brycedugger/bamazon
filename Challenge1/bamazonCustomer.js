@@ -50,7 +50,7 @@ function displayItems() {
   connection.query("SELECT * FROM products", function (err, res) {
     if (err) throw err;
     for (var i = 0; i < res.length; i++) {
-      productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Size: " + res[i].size + "||" + "Price: " + res[i].price);
+      productsArray.push("ID: " + res[i].item_id + "||" + "Item: " + res[i].product_name + "||" + "Size: " + res[i].size + "||" + "Price: $" + res[i].price);
     }
     console.log(productsArray);
     customerQuery();
@@ -98,7 +98,7 @@ function checkStockQuantity(id, quantity) {
       var totalPrice = quantity * parseFloat(results[0].price);
       connection.query("UPDATE products SET ? WHERE ?", [{stock_quantity: newQuantity},{ item_id: id }], function (error) {
           if (error) throw err;
-          console.log("Thank you for your purchase! Your total was $: " + totalPrice);
+          console.log("Thank you for your purchase! Your total was $" + totalPrice);
           console.log("-----------------------------------------------------------");
           runManager();
         }
