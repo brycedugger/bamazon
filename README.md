@@ -31,7 +31,7 @@ Example Output:
 
 BAMAZON CUSTOMER:
 
-![photo1](/screenshots/1-1.jpg)
+![photo1](/screenshots/1-1.JPG)
 
 Figure 1: Main menu.
 
@@ -77,7 +77,7 @@ Figure 10: Showing new product in MySQL database.
 
 Figure 11: View products for sale by department. Shown with different supervisor table displaying new options.
 
-![photo1](/screenshots/3-2.jpg)
+![photo1](/screenshots/3-2.JPG)
 
 Figure 12: Showing how BamazonCustomer now has a product sales record available for the supervisor to keep track of profits.
 
