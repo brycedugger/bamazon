@@ -35,7 +35,7 @@ BAMAZON CUSTOMER:
 
 Figure 1: Main menu.
 
-![photo1](/screenshots/1-2.jpg)
+![photo1](/screenshots/1-2.JPG)
 
 Figure 2: Purchase a product successfully.
 
