@@ -31,53 +31,53 @@ Example Output:
 
 BAMAZON CUSTOMER:
 
-![photo1](/screenshots/1-1.jpeg)
+![photo1](/screenshots/1-1.jpg)
 
 Figure 1: Main menu.
 
-![photo1](/screenshots/1-2.jpeg)
+![photo1](/screenshots/1-2.jpg)
 
 Figure 2: Purchase a product successfully.
 
-![photo1](/screenshots/1-3.jpeg)
+![photo1](/screenshots/1-3.jpg)
 
 Figure 3: Purchase a product unsucessfully.
 
-![photo1](/screenshots/1-4.jpeg)
+![photo1](/screenshots/1-4.jpg)
 
 Figure 4: MySQL database.
 
 BAMAZON MANAGER:
 
-![photo1](/screenshots/2-2.jpeg)
+![photo1](/screenshots/2-2.jpg)
 
 Figure 5: View products for sale. Larger menu than the customer's version.
 
-![photo1](/screenshots/2-3.jpeg)
+![photo1](/screenshots/2-3.jpg)
 
 Figure 6: View low inventory items or items with a quantity of less than 5.
 
-![photo1](/screenshots/2-4.jpeg)
+![photo1](/screenshots/2-4.jpg)
 
 Figure 7: Adding to the inventory.
 
-![photo1](/screenshots/2-5.jpeg)
+![photo1](/screenshots/2-5.jpg)
 
 Figure 8: Showing stock_quantity updated in the MySQL database.
 
-![photo1](/screenshots/2-6.jpeg)
+![photo1](/screenshots/2-6.jpg)
 
 Figure 9: Adding a new product to the database.
 
-![photo1](/screenshots/2-7.jpeg)
+![photo1](/screenshots/2-7.jpg)
 
 Figure 10: Showing new product in MySQL database.
 
-![photo1](/screenshots/3-1.jpeg)
+![photo1](/screenshots/3-1.jpg)
 
 Figure 11: View products for sale by department. Shown with different supervisor table displaying new options.
 
-![photo1](/screenshots/3-2.jpeg)
+![photo1](/screenshots/3-2.jpg)
 
 Figure 12: Showing how BamazonCustomer now has a product sales record available for the supervisor to keep track of profits.
 
