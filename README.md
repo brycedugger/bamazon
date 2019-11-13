@@ -39,41 +39,41 @@ Figure 1: Main menu.
 
 Figure 2: Purchase a product successfully.
 
-![photo1](Screenshots/1-3.jpg)
+![photo1](Screenshots/1-3.JPG)
 
 Figure 3: Purchase a product unsucessfully.
 
-![photo1](/Screenshots/1-4.jpg)
+![photo1](/Screenshots/1-4.JPG)
 
 Figure 4: MySQL database.
 
 **BAMAZON MANAGER:**
 
-![photo1](/Screenshots/2-2.jpg)
+![photo1](/Screenshots/2-2.JPG)
 
 Figure 5: View products for sale. Larger menu than the customer's version.
 
-![photo1](/Screenshots/2-3.jpg)
+![photo1](/Screenshots/2-3.JPG)
 
 Figure 6: View low inventory items or items with a quantity of less than 5.
 
-![photo1](/Screenshots/2-4.jpg)
+![photo1](/Screenshots/2-4.JPG)
 
 Figure 7: Adding to the inventory.
 
-![photo1](/Screenshots/2-5.jpg)
+![photo1](/Screenshots/2-5.JPG)
 
 Figure 8: Showing stock_quantity updated in the MySQL database.
 
-![photo1](/Screenshots/2-6.jpg)
+![photo1](/Screenshots/2-6.JPG)
 
 Figure 9: Adding a new product to the database.
 
-![photo1](/Screenshots/2-7.jpg)
+![photo1](/Screenshots/2-7.JPG)
 
 Figure 10: Showing new product in MySQL database.
 
-![photo1](/Screenshots/3-1.jpg)
+![photo1](/Screenshots/3-1.JPG)
 
 Figure 11: View products for sale by department. Shown with different supervisor table displaying new options.
 
