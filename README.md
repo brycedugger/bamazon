@@ -31,15 +31,15 @@ Example Output:
 
 BAMAZON CUSTOMER:
 
-![photo1](screenshots/1-1.JPG)
+![photo1](Screenshots/1-1.JPG)
 
 Figure 1: Main menu.
 
-![photo1](/screenshots/1-2.JPG)
+![photo1](/Screenshots/1-2.JPG)
 
 Figure 2: Purchase a product successfully.
 
-![photo1](screenshots/1-3.jpg)
+![photo1](Screenshots/1-3.jpg)
 
 Figure 3: Purchase a product unsucessfully.
 
