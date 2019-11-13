@@ -35,7 +35,7 @@ function runSupervisor() {
         })
         .then(function (answer) {
             switch (answer.action) {
-                case "View Product Sales by Department":
+                case "View Product Sale by Department":
                     viewProductSales();
                     break;
 
