@@ -28,7 +28,7 @@ function runSupervisor() {
             type: "list",
             message: "What would you like to do?",
             choices: [
-                "View Product Sales by Department",
+                "View Product Sale by Department",
                 "Create New Department",
                 "Exit"
             ]

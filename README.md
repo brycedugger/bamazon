@@ -47,6 +47,8 @@ Figure 3: Purchase a product unsucessfully.
 
 Figure 4: MySQL database.
 
+-------------------------------------------------------------------------
+
 **BAMAZON MANAGER:**
 
 ![photo1](/Screenshots/2-2.JPG)
@@ -73,6 +75,10 @@ Figure 9: Adding a new product to the database.
 
 Figure 10: Showing new product in MySQL database.
 
+-------------------------------------------------------------------------
+
+**BAMAZON SUPERVISOR**
+
 ![photo1](/Screenshots/3-1.JPG)
 
 Figure 11: View products for sale by department. Shown with different supervisor table displaying new options.
@@ -80,6 +86,14 @@ Figure 11: View products for sale by department. Shown with different supervisor
 ![photo1](/Screenshots/3-2.JPG)
 
 Figure 12: Showing how BamazonCustomer now has a product sales record available for the supervisor to keep track of profits.
+
+![photo1](/Screenshots/3-3.JPG)
+
+Figure 13: Add department to database.
+
+![photo1](/Screenshots/3-4.JPG)
+
+Figure 14: Showing updated database with the inputted values.
 
 
 
